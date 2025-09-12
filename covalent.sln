@@ -1,15 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31903.59
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11005.162 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72D-47B6-A68D-7590B98EB39B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covalent.Core", "src\Covalent.Core\Covalent.Core.csproj", "{47A79362-E8E5-4ECE-BC70-FB0CB2C3F136}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covalent.Importers.AgentFiles", "src\Covalent.Importers.AgentFiles\Covalent.Importers.AgentFiles.csproj", "{312509E4-397C-4740-A21E-D29B61AF03D8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covalent.Tests", "src\Covalent.Tests\Covalent.Tests.csproj", "{A1234567-89AB-CDEF-0123-456789ABCDEF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0. Core", "0. Core", "{35C5E14D-8E06-4FC3-92ED-10C4BD06CEC8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Imports and Exporters", "3. Imports and Exporters", "{D9342168-0FA0-43F2-A697-4C584E0D4A01}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Infrastructure", "1. Infrastructure", "{F0D5DB75-0DF2-4AF8-91A4-922F782742E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Aspire Injection", "2. Aspire Injection", "{002CAE97-C9D1-46F3-9C87-5A1AE3A5FFAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covalent.Providers.AzureFoundry", "src\Covalent.Providers.AzureFoundry\Covalent.Providers.AzureFoundry.csproj", "{90067D20-86BD-4689-B61E-3C9F3D577EA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,13 +65,25 @@ Global
 		{A1234567-89AB-CDEF-0123-456789ABCDEF}.Release|x64.Build.0 = Release|Any CPU
 		{A1234567-89AB-CDEF-0123-456789ABCDEF}.Release|x86.ActiveCfg = Release|Any CPU
 		{A1234567-89AB-CDEF-0123-456789ABCDEF}.Release|x86.Build.0 = Release|Any CPU
+		{90067D20-86BD-4689-B61E-3C9F3D577EA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90067D20-86BD-4689-B61E-3C9F3D577EA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90067D20-86BD-4689-B61E-3C9F3D577EA8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{90067D20-86BD-4689-B61E-3C9F3D577EA8}.Debug|x64.Build.0 = Debug|Any CPU
+		{90067D20-86BD-4689-B61E-3C9F3D577EA8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{90067D20-86BD-4689-B61E-3C9F3D577EA8}.Debug|x86.Build.0 = Debug|Any CPU
+		{90067D20-86BD-4689-B61E-3C9F3D577EA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90067D20-86BD-4689-B61E-3C9F3D577EA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90067D20-86BD-4689-B61E-3C9F3D577EA8}.Release|x64.ActiveCfg = Release|Any CPU
+		{90067D20-86BD-4689-B61E-3C9F3D577EA8}.Release|x64.Build.0 = Release|Any CPU
+		{90067D20-86BD-4689-B61E-3C9F3D577EA8}.Release|x86.ActiveCfg = Release|Any CPU
+		{90067D20-86BD-4689-B61E-3C9F3D577EA8}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{47A79362-E8E5-4ECE-BC70-FB0CB2C3F136} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
-		{312509E4-397C-4740-A21E-D29B61AF03D8} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
-		{A1234567-89AB-CDEF-0123-456789ABCDEF} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{47A79362-E8E5-4ECE-BC70-FB0CB2C3F136} = {35C5E14D-8E06-4FC3-92ED-10C4BD06CEC8}
+		{312509E4-397C-4740-A21E-D29B61AF03D8} = {D9342168-0FA0-43F2-A697-4C584E0D4A01}
+		{90067D20-86BD-4689-B61E-3C9F3D577EA8} = {F0D5DB75-0DF2-4AF8-91A4-922F782742E3}
 	EndGlobalSection
 EndGlobal

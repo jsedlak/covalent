@@ -6,7 +6,7 @@ namespace Covalent.Agents.Services;
 
 public sealed class AgentFileAgentImporter : IAgentImporter
 {
-    public async Task<AgentDefinition> ImportAgent(string agentName, Dictionary<string, string> properties)
+    public async Task<Agent> ImportAgent(string agentName, Dictionary<string, string> properties)
     {
         if (!properties.TryGetValue("file", out var filename) || string.IsNullOrWhiteSpace(filename))
         {
@@ -23,6 +23,9 @@ public sealed class AgentFileAgentImporter : IAgentImporter
 
         agentDefinition.Name = agentName;
         
-        return agentDefinition;
+        return new Agent {
+            Name = agentName,
+            Description = agentDefinition.Description
+        };
     }
 }
