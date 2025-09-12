@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.4.0" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>29ab7866-f2c8-43ee-afa9-0d482dd96dfb</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Covalent.Aspire.Hosting.AzureFoundry\Covalent.Aspire.Hosting.AzureFoundry.csproj" IsAspireProjectResource="false" />
+    <ProjectReference Include="..\Covalent.Core\Covalent.Core.csproj" />
+    <ProjectReference Include="..\Covalent.Providers.AzureFoundry\Covalent.Providers.AzureFoundry.csproj" />
+    <ProjectReference Include="..\Covalent.Silo\Covalent.Silo.csproj" />
+  </ItemGroup>
+
+</Project>

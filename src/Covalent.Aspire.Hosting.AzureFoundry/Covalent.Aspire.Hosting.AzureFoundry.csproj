@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<RootNamespace>Covalent.Aspire.Hosting</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Aspire.Hosting.AppHost" Version="9.4.0" />
+		<PackageReference Include="Microsoft.Extensions.ServiceDiscovery" Version="9.4.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Covalent.Providers.AzureFoundry\Covalent.Providers.AzureFoundry.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Builders\" />
+	  <Folder Include="Configuration\" />
+	  <Folder Include="Extensions\" />
+	</ItemGroup>
+
+</Project>

@@ -25,7 +25,8 @@ public sealed class AgentFileAgentImporter : IAgentImporter
         
         return new Agent {
             Name = agentName,
-            Description = agentDefinition.Description
+            Description = agentDefinition.Description,
+            SystemPrompt = agentDefinition.SystemPrompt
         };
     }
 }

@@ -4,5 +4,5 @@ namespace Covalent.Agents.ServiceModel;
 
 public interface IAgentImporter 
 {
-    Task<AgentDefinition> ImportAgent(string agentName, Dictionary<string, string> properties);
+    Task<Agent> ImportAgent(string agentName, Dictionary<string, string> properties);
 }
