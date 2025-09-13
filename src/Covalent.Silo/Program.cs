@@ -5,9 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 
-// Add services to the container.
+// Add support for covalent!
 builder.AddCovalent();
-builder.AddKeyedAzureFoundry("namedAzureFoundry");
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

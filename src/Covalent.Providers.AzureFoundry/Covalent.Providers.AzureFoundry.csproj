@@ -5,6 +5,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<RootNamespace>Covalent.Providers</RootNamespace>
+		<IsTrimmable>false</IsTrimmable>
 	</PropertyGroup>
 
 	<ItemGroup>
