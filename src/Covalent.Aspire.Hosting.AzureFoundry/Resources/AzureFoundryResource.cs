@@ -1,12 +1,11 @@
-using Aspire.Hosting.ApplicationModel;
-
 namespace Covalent.Aspire.Hosting.Resources;
 
 /// <summary>
 /// Represents an Azure Foundry resource in an Aspire distributed application.
 /// </summary>
 /// <param name="name">The name of the Azure Foundry resource.</param>
-public class AzureFoundryResource(string name) : Resource(name)
+public class AzureFoundryResource(string name) : 
+    Resource(name)
 {
     /// <summary>
     /// Gets or sets the URI for the Azure Foundry management endpoint.

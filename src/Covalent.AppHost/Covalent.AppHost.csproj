@@ -16,8 +16,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Covalent.Aspire.Hosting.AzureFoundry\Covalent.Aspire.Hosting.AzureFoundry.csproj" IsAspireProjectResource="false" />
-    <ProjectReference Include="..\Covalent.Core\Covalent.Core.csproj" />
-    <ProjectReference Include="..\Covalent.Providers.AzureFoundry\Covalent.Providers.AzureFoundry.csproj" />
+    <ProjectReference Include="..\Covalent.Core\Covalent.Core.csproj" IsAspireProjectResource="false" />
+    <ProjectReference Include="..\Covalent.Providers.AzureFoundry\Covalent.Providers.AzureFoundry.csproj" IsAspireProjectResource="false" />
     <ProjectReference Include="..\Covalent.Silo\Covalent.Silo.csproj" />
   </ItemGroup>
 

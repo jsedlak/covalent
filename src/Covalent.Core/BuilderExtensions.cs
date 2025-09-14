@@ -60,7 +60,7 @@ public static class BuilderExtensions
             {
                 Console.WriteLine($"Registering {category} service {name} with key {keyedService.Key}");
                 
-                serviceBuilder?.Register(builder, name);
+                serviceBuilder?.Register(builder, keyedService.Key);
             }
         }
     }

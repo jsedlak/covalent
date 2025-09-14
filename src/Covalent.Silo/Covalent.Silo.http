@@ -1,6 +1,0 @@
-@Covalent.Silo_HostAddress = http://localhost:5216
-
-GET {{Covalent.Silo_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

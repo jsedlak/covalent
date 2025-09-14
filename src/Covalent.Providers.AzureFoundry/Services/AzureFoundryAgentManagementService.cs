@@ -10,7 +10,6 @@ public class AzureFoundryAgentManagementService : IAgentManagementService
         Name = name ?? throw new ArgumentNullException(nameof(name));
         _uri = uri ?? throw new ArgumentNullException(nameof(uri));
         _token = token ?? throw new ArgumentNullException(nameof(token));
-        Name = "AzureFoundry";
     }
 
     public Task Deploy(string name, string description, string systemPrompt, string model)
@@ -19,4 +18,6 @@ public class AzureFoundryAgentManagementService : IAgentManagementService
     }
 
     public string Name { get; private set; }
+
+    public string Category => "AzureFoundry";
 }

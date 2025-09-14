@@ -15,9 +15,10 @@ public class ProvidersController : ControllerBase
     }
 
     [HttpGet(Name = "GetProviders")]
-    public IEnumerable<string> Get()
+    public IEnumerable<object> Get()
     {
-        return _serviceProvider.GetKeyedServices<IAgentManagementService>(KeyedService.AnyKey)
-            .Select(s => s.Name);
+        return _serviceProvider
+            .GetKeyedServices<IAgentManagementService>(KeyedService.AnyKey)
+            .Select(s => new { name = s.Name, category = s.Category });
     }
 }
