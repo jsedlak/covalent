@@ -8,18 +8,25 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Builders\**" />
+	  <Compile Remove="Configuration\**" />
+	  <Compile Remove="Extensions\**" />
+	  <EmbeddedResource Remove="Builders\**" />
+	  <EmbeddedResource Remove="Configuration\**" />
+	  <EmbeddedResource Remove="Extensions\**" />
+	  <None Remove="Builders\**" />
+	  <None Remove="Configuration\**" />
+	  <None Remove="Extensions\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Aspire.Hosting.AppHost" Version="9.4.0" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="9.0.9" />
 		<PackageReference Include="Microsoft.Extensions.ServiceDiscovery" Version="9.4.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\Covalent.Providers.AzureFoundry\Covalent.Providers.AzureFoundry.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Builders\" />
-	  <Folder Include="Configuration\" />
-	  <Folder Include="Extensions\" />
 	</ItemGroup>
 
 </Project>

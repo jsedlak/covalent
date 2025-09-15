@@ -1,4 +1,6 @@
-﻿using Covalent.Aspire.Hosting.Resources;
+﻿using Covalent.Aspire.Hosting.HealthChecks;
+using Covalent.Aspire.Hosting.Resources;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Aspire.Hosting;
 
@@ -17,7 +19,15 @@ public static class AzureFoundryResourceBuilderExtensions
             TokenParameter = tokenParameter
         };
 
-        return builder.AddResource(resource);
+        builder.Services.AddHealthChecks()
+            .AddCheck<AzureFoundryHealthCheck>(
+                $"azure_foundry_{name}",
+                tags: new[] { "azure_foundry", "external" });
+
+        return builder.AddResource(resource)
+            .WithHealthCheck($"azure_foundry_{name}");
+
+        
     }
 
     public static IResourceBuilder<AzureFoundryResource> AddAzureFoundry(
@@ -32,7 +42,13 @@ public static class AzureFoundryResourceBuilderExtensions
             Token = accessToken
         };
 
-        return builder.AddResource(resource);
+        builder.Services.AddHealthChecks()
+            .AddCheck<AzureFoundryHealthCheck>(
+                $"azure_foundry_{name}",
+                tags: new[] { "azure_foundry", "external" });
+
+        return builder.AddResource(resource)
+            .WithHealthCheck($"azure_foundry_{name}");
     }
 
     public static IResourceBuilder<TDestination> WithReference<TDestination>(
