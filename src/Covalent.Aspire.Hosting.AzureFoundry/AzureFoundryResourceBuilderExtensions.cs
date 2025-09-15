@@ -26,8 +26,6 @@ public static class AzureFoundryResourceBuilderExtensions
 
         return builder.AddResource(resource)
             .WithHealthCheck($"azure_foundry_{name}");
-
-        
     }
 
     public static IResourceBuilder<AzureFoundryResource> AddAzureFoundry(
