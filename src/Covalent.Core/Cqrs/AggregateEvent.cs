@@ -1,7 +1,7 @@
 namespace Covalent.Core.Cqrs;
 
 [GenerateSerializer]
-public abstract class AggregateCommand
+public abstract class AggregateEvent
 {
     [Id(0)]
     public Guid AggregateId { get; set; }

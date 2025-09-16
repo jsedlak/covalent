@@ -8,9 +8,9 @@ builder.AddServiceDefaults();
 // Add support for covalent!
 builder.AddCovalent();
 
+// Add ASP.NET Core services
 builder.Services.AddCors();
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
