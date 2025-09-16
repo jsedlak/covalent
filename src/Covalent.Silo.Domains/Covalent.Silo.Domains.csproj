@@ -8,7 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Strata" Version="0.0.1" />
+    <PackageReference Include="Petl.Core" Version="1.1.1" />
+    <PackageReference Include="Strata" Version="0.0.3" />
   </ItemGroup>
 
   <ItemGroup>

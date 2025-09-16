@@ -4,5 +4,5 @@ namespace Covalent.Core.Cqrs;
 public abstract class AggregateCommand
 {
     [Id(0)]
-    public Guid AggregateId { get; set; }
+    public string AggregateId { get; set; } = null!;
 }

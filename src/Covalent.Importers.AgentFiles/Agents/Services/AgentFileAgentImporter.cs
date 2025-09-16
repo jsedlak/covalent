@@ -1,12 +1,11 @@
 using System.Text.Json;
 using Covalent.Agents.Model;
-using Covalent.Agents.ServiceModel;
 
 namespace Covalent.Agents.Services;
 
 public sealed class AgentFileAgentImporter : IAgentImporter
 {
-    public async Task<Agent> ImportAgent(string agentName, Dictionary<string, string> properties)
+    public async Task ImportAgent(string agentName, Dictionary<string, string> properties)
     {
         if (!properties.TryGetValue("file", out var filename) || string.IsNullOrWhiteSpace(filename))
         {
@@ -22,11 +21,7 @@ public sealed class AgentFileAgentImporter : IAgentImporter
         }
 
         agentDefinition.Name = agentName;
-        
-        return new Agent {
-            Name = agentName,
-            Description = agentDefinition.Description,
-            SystemPrompt = agentDefinition.SystemPrompt
-        };
+
+        // TODO: Do something with this agent definition, like saving it to a database or registering it in the system.
     }
 }
