@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Covalent.Core\Covalent.Core.csproj" />
-    <ProjectReference Include="..\Covalent.Providers.AzureFoundry\Covalent.Providers.AzureFoundry.csproj" />
     <ProjectReference Include="..\Covalent.ServiceDefaults\Covalent.ServiceDefaults.csproj" />
   </ItemGroup>
 
