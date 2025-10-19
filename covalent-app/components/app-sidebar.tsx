@@ -1,19 +1,20 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { 
-  Home, 
-  Rocket, 
-  Bot, 
-  Wrench, 
-  Database, 
-  Search, 
+import * as React from "react";
+import {
+  Home,
+  Rocket,
+  Bot,
+  Wrench,
+  Database,
+  Search,
   Settings,
   PanelLeftClose,
-  PanelLeftOpen
-} from "lucide-react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+  PanelLeftOpen,
+  MessageSquare,
+} from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import {
   Sidebar,
@@ -26,11 +27,16 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarTrigger,
-} from "@/components/ui/sidebar"
-import { useSidebar } from "@/lib/hooks/use-sidebar"
-import { Button } from "@/components/ui/button"
+} from "@/components/ui/sidebar";
+import { useSidebar } from "@/lib/hooks/use-sidebar";
+import { Button } from "@/components/ui/button";
 
 const navigationItems = [
+  {
+    title: "Chat",
+    url: "/chat",
+    icon: MessageSquare,
+  },
   {
     title: "Dashboard",
     url: "/",
@@ -61,12 +67,12 @@ const navigationItems = [
     url: "/search",
     icon: Search,
   },
-]
+];
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const pathname = usePathname()
-  const { state, toggleSidebar } = useSidebar()
-  const isCollapsed = state === "collapsed"
+  const pathname = usePathname();
+  const { state, toggleSidebar } = useSidebar();
+  const isCollapsed = state === "collapsed";
 
   return (
     <Sidebar collapsible="icon" {...props}>
@@ -78,9 +84,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 C
               </div>
             ) : (
-              <div className="font-bold text-xl text-foreground">
-                Covalent
-              </div>
+              <div className="font-bold text-xl text-foreground">Covalent</div>
             )}
           </div>
           <Button
@@ -98,7 +102,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </Button>
         </div>
       </SidebarHeader>
-      
+
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupContent>
@@ -120,10 +124,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-        
+
         {/* Spacer to push Settings to bottom */}
         <div className="flex-1" />
-        
+
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
@@ -144,5 +148,5 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
-  )
+  );
 }

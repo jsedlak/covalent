@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Covalent",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

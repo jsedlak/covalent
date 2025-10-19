@@ -7,6 +7,8 @@ builder.AddServiceDefaults();
 
 // Add support for covalent!
 builder.AddCovalent();
+builder.AddAzureChatCompletionsClient(connectionName: "chat")
+    .AddChatClient();
 
 // Add ASP.NET Core services
 builder.Services.AddCors();
