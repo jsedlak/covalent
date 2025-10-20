@@ -24,7 +24,7 @@ public sealed class AgentsController : ControllerBase
     [HttpPost("chat")]
     public async IAsyncEnumerable<string> Chat([FromBody] ChatRequest request)
     {
-       var result = await _client.CompleteStreamingAsync(new ChatCompletionsOptions
+        var result = await _client.CompleteStreamingAsync(new ChatCompletionsOptions
         {
             Messages =
             {
@@ -33,7 +33,7 @@ public sealed class AgentsController : ControllerBase
             MaxTokens = 100
         });
 
-        await foreach(var response in result)
+        await foreach (var response in result)
         {
             yield return response.ContentUpdate;
         }
@@ -42,17 +42,33 @@ public sealed class AgentsController : ControllerBase
     [HttpPost("chat2")]
     public async Task Chat2([FromBody] ChatRequest request)
     {
-        var result = _chatClient.GetStreamingResponseAsync(request.Message);
+        var dateTimeTool = AIFunctionFactory.Create(
+            () =>
+            {
+                _logger.LogInformation("DateTime tool invoked");
+                return DateTime.UtcNow.ToString();
+            },
+            description: "Returns the current UTC time"
+        );
+
+        var result = _chatClient.GetStreamingResponseAsync(request.Message,
+            new ChatOptions
+            {
+                Tools = [
+                    dateTimeTool
+                ]
+            }
+        );
 
         Response.Headers["Content-Encoding"] = "identity";
         Response.Headers.Append("Cache-Control", "no-cache");
         Response.Headers.Append("X-Accel-Buffering", "no");
 
         Response.ContentType = "text/plain";
-        
+
         await foreach (var response in result)
         {
-            _logger.LogInformation(JsonSerializer.Serialize(response));
+            // _logger.LogInformation(JsonSerializer.Serialize(response));
 
             await Response.WriteAsync(response.Text);
             await Response.Body.FlushAsync();

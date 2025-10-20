@@ -1,6 +1,7 @@
 using Covalent;
 using Covalent.Providers;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.Extensions.AI;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +10,8 @@ builder.AddServiceDefaults();
 // Add support for covalent!
 builder.AddCovalent();
 builder.AddAzureChatCompletionsClient(connectionName: "chat")
-    .AddChatClient();
+    .AddChatClient()
+    .UseFunctionInvocation();
 
 // Add ASP.NET Core services
 builder.Services.AddCors();
