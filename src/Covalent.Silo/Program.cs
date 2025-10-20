@@ -1,5 +1,6 @@
 using Covalent;
 using Covalent.Providers;
+using Microsoft.AspNetCore.Http.Features;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +34,18 @@ app.UseCors(policy => policy
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
+
+app.Use(async (context, next) =>
+{
+    // Disable compression on this route
+    if (context.Request.Path.StartsWithSegments("/chat2"))
+    {
+        context.Features.Get<IHttpResponseBodyFeature>()?.DisableBuffering();
+    }
+
+    await next();
+});
+
 app.MapControllers();
 
 app.Run();
