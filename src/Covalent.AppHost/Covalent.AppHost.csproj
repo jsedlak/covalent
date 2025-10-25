@@ -1,6 +1,6 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
-	<Sdk Name="Aspire.AppHost.Sdk" Version="9.4.0" />
+	<Sdk Name="Aspire.AppHost.Sdk" Version="9.5.1" />
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
@@ -11,26 +11,14 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Aspire.Hosting.AppHost" Version="9.4.0" />
-		<PackageReference Include="Aspire.Hosting.NodeJs" Version="9.4.2" />
-		<PackageReference Include="CommunityToolkit.Aspire.Hosting.Ollama" Version="9.8.0-beta.386" />
+		<PackageReference Include="Aspire.Hosting.AppHost" Version="9.5.1" />
+		<PackageReference Include="Aspire.Hosting.Azure.AIFoundry" Version="9.5.1-preview.1.25502.11" />
+		<PackageReference Include="Aspire.Hosting.NodeJs" Version="9.5.1" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Covalent.Aspire.Hosting.AzureFoundry\Covalent.Aspire.Hosting.AzureFoundry.csproj" IsAspireProjectResource="false" />
 		<ProjectReference Include="..\Covalent.Core\Covalent.Core.csproj" IsAspireProjectResource="false" />
-		<ProjectReference Include="..\Covalent.Providers.AzureFoundry\Covalent.Providers.AzureFoundry.csproj" IsAspireProjectResource="false" />
 		<ProjectReference Include="..\Covalent.Silo\Covalent.Silo.csproj" />
 	</ItemGroup>
-
-	<Target Name="RestoreNpm" BeforeTargets="Build" Condition=" '$(DesignTimeBuild)' != 'true' ">
-		<ItemGroup>
-			<PackageJsons Include="..\..\covalent-app\package.json" />
-		</ItemGroup>
-
-		<!-- Install npm packages if node_modules is missing -->
-		<Message Importance="Normal" Text="Installing npm packages for %(PackageJsons.RelativeDir)" Condition="!Exists('%(PackageJsons.RootDir)%(PackageJsons.Directory)/node_modules')" />
-		<Exec Command="npm install" WorkingDirectory="%(PackageJsons.RootDir)%(PackageJsons.Directory)" Condition="!Exists('%(PackageJsons.RootDir)%(PackageJsons.Directory)/node_modules')" />
-	</Target>
 
 </Project>

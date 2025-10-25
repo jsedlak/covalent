@@ -15,6 +15,8 @@ internal class AgentGrain : EventSourcedGrain<Agent, BaseAgentEvent>, IAgentGrai
             Name = command.Name,
             Description = command.Description
         });
+
+        await GrainFactory.GetGrain<IAgentGrain>("test-agent").SetMeta(command);
     }
 
     public async Task SetProviderAndModel(SetAgentProviderAndModelCommand command)

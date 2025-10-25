@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Aspire.Azure.AI.Inference" Version="9.5.1-preview.1.25502.11" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.9" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Covalent.Core\Covalent.Core.csproj" />
-    <ProjectReference Include="..\Covalent.Providers.AzureFoundry\Covalent.Providers.AzureFoundry.csproj" />
     <ProjectReference Include="..\Covalent.ServiceDefaults\Covalent.ServiceDefaults.csproj" />
   </ItemGroup>
 
