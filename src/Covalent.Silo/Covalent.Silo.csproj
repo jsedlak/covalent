@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Azure.AI.Inference" Version="9.5.1-preview.1.25502.11" />
+    <PackageReference Include="Aspire.Azure.AI.Inference" Version="9.5.2-preview.1.25522.3" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.9" />
+    <PackageReference Include="Strata" Version="0.0.5" />
   </ItemGroup>
 
   <ItemGroup>

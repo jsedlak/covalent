@@ -1,0 +1,3 @@
+[submodule "hitch"]
+	path = hitch
+	url = git@github.com:jsedlak/hitch.git
