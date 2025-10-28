@@ -4,6 +4,8 @@ Covalent is a prototype for deploying AI Agents using [Microsoft Orleans](https:
 
 ![Overview](doc/overview.png)
 
+![Arch High Level](doc/architecture-high-level.png)
+
 # Configuration
 
 Covalent uses [Hitch](https://github.com/jsedlak/hitch) to support plug and play development.
