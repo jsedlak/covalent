@@ -4,7 +4,7 @@ using Hitch.Aspire.Hosting;
 var builder = DistributedApplication.CreateBuilder(args);
 
 // configure our plugins!
-var hitch = builder.AddHitch(builder => builder.WithFilePattern("Covalent.*.Plugin.dll"));
+var hitch = builder.AddHitch(builder => builder.WithFilePattern("Covalent.Plugins.*.dll"));
 
 var foundry = builder.AddAzureAIFoundry("foundry");
 var chat = foundry.AddDeployment("chat", AIFoundryModel.OpenAI.Gpt5Nano);

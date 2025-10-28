@@ -1,0 +1,24 @@
+meta {
+  name: Components
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{STORYBLOK_MANAGEMENT_URL}}/v1/spaces/:space_id/components
+  body: none
+  auth: inherit
+}
+
+params:path {
+  space_id: 1018892
+}
+
+headers {
+  : 
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
