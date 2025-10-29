@@ -61,10 +61,10 @@ public static class StoryblokHitchResourceBuilderExtensions
 
         var config = builder.Resource.PluginConfigurations[configKey];
         
-        // Store as ReferenceExpression for proper parameter resolution
-        config["SpaceId"] = ReferenceExpression.Create($"{spaceId.Resource.Name}");
-        config["ManagementApiUrl"] = ReferenceExpression.Create($"{managementApiUrl.Resource.Name}");
-        config["PersonalAccessToken"] = ReferenceExpression.Create($"{personalAccessToken.Resource.Name}");
+        // Store the ParameterResource objects directly - GetEnvironmentExports will create proper references
+        config["SpaceId"] = spaceId.Resource;
+        config["ManagementApiUrl"] = managementApiUrl.Resource;
+        config["PersonalAccessToken"] = personalAccessToken.Resource;
 
         return builder;
     }
