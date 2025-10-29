@@ -37,24 +37,61 @@ public static class ServiceCollectionExtensions
     /// </summary>
     public static IServiceCollection AddStoryblok(
         this IServiceCollection services,
-        IConfigurationSection configurationSection)
+        IConfigurationSection configurationSection,
+        string? name = null)
     {
-        // Configure options from configuration
-        services.Configure<StoryblokOptions>(configurationSection);
-        services.Configure<StoryblokTokenOptions>(configurationSection);
-        
-        // Add keyed HttpClient with authorization header
-        services.AddHttpClient(
-            "storyblok",
-            (serviceProvider, client) =>
-            {
-                var token = serviceProvider.GetRequiredService<IOptions<StoryblokTokenOptions>>();
-                client.DefaultRequestHeaders.Authorization = 
-                    new System.Net.Http.Headers.AuthenticationHeaderValue(token.Value.PersonalAccessToken);
-            });
-        
-        // Register the service
-        services.AddScoped<IStoryblokManagementService, StoryblokManagementService>();
+        if (string.IsNullOrEmpty(name))
+        {
+            // Non-keyed registration for backward compatibility
+            services.Configure<StoryblokOptions>(configurationSection);
+            services.Configure<StoryblokTokenOptions>(configurationSection);
+            
+            // Add HttpClient with authorization header
+            services.AddHttpClient(
+                "storyblok",
+                (serviceProvider, client) =>
+                {
+                    var token = serviceProvider.GetRequiredService<IOptions<StoryblokTokenOptions>>();
+                    client.DefaultRequestHeaders.Authorization = 
+                        new System.Net.Http.Headers.AuthenticationHeaderValue(token.Value.PersonalAccessToken);
+                });
+            
+            // Register the service
+            services.AddScoped<IStoryblokManagementService, StoryblokManagementService>();
+        }
+        else
+        {
+            // Keyed registration with name
+            // Bind options from configuration section
+            var storyblokOptions = new StoryblokOptions();
+            var storyblokTokenOptions = new StoryblokTokenOptions();
+            configurationSection.Bind(storyblokOptions);
+            configurationSection.Bind(storyblokTokenOptions);
+            
+            // Register as keyed singletons for options
+            services.AddKeyedSingleton(name, storyblokOptions);
+            services.AddKeyedSingleton(name, storyblokTokenOptions);
+            
+            // Add keyed HttpClient with authorization header
+            services.AddHttpClient(
+                name,
+                (serviceProvider, client) =>
+                {
+                    var token = serviceProvider.GetRequiredKeyedService<StoryblokTokenOptions>(name);
+                    client.DefaultRequestHeaders.Authorization = 
+                        new System.Net.Http.Headers.AuthenticationHeaderValue(token.PersonalAccessToken);
+                });
+            
+            // Register the service as keyed
+            services.AddKeyedScoped<IStoryblokManagementService>(
+                name,
+                (serviceProvider, key) =>
+                {
+                    var httpClientFactory = serviceProvider.GetRequiredService<IHttpClientFactory>();
+                    var options = serviceProvider.GetRequiredKeyedService<StoryblokOptions>(key);
+                    return new StoryblokManagementService(httpClientFactory, Microsoft.Extensions.Options.Options.Create(options), name);
+                });
+        }
         
         return services;
     }

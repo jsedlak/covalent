@@ -1,5 +1,5 @@
 using Covalent;
-using Covalent.Providers;
+using Hitch;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.AI;
 
@@ -13,8 +13,8 @@ builder.AddAzureChatCompletionsClient(connectionName: "chat")
     .AddChatClient()
     .UseFunctionInvocation();
 
-// Add our plugins manually for testing
-builder.AddStoryblok();
+// Add Hitch plugin support - plugins will be auto-discovered and attached
+builder.Services.AddHitch();
 
 // Add ASP.NET Core services
 builder.Services.AddCors();

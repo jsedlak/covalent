@@ -1,6 +1,7 @@
 using Covalent.Plugins.Storyblok.Model;
 using Covalent.Plugins.Storyblok.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Covalent.Silo.Controllers;
 
@@ -9,7 +10,8 @@ namespace Covalent.Silo.Controllers;
 public class StoryblokController : ControllerBase
 {
     private readonly IStoryblokManagementService _storyblokManagementService;
-    public StoryblokController(IStoryblokManagementService storyblokManagementService)
+    
+    public StoryblokController([FromKeyedServices("storyblok")] IStoryblokManagementService storyblokManagementService)
     {
         _storyblokManagementService = storyblokManagementService;
     }

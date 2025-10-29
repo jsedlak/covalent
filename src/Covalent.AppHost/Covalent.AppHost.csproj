@@ -19,6 +19,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\hitch\src\Hitch.Aspire.Hosting\Hitch.Aspire.Hosting.csproj" IsAspireProjectResource="false" />
+		<ProjectReference Include="..\Covalent.Aspire.Hosting.Storyblok\Covalent.Aspire.Hosting.Storyblok.csproj" IsAspireProjectResource="false" />
 		<ProjectReference Include="..\Covalent.Core\Covalent.Core.csproj" IsAspireProjectResource="false" />
 		<ProjectReference Include="..\Covalent.Silo\Covalent.Silo.csproj" />
 	</ItemGroup>

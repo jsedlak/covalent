@@ -13,8 +13,16 @@ public class StoryblokManagementService : IStoryblokManagementService
     public StoryblokManagementService(
         IHttpClientFactory httpClientFactory,
         IOptions<StoryblokOptions> options)
+        : this(httpClientFactory, options, "storyblok")
     {
-        _httpClient = httpClientFactory.CreateClient("storyblok");
+    }
+
+    public StoryblokManagementService(
+        IHttpClientFactory httpClientFactory,
+        IOptions<StoryblokOptions> options,
+        string clientName)
+    {
+        _httpClient = httpClientFactory.CreateClient(clientName);
         _options = options.Value;
     }
 

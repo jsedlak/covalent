@@ -1,15 +1,16 @@
 ﻿using Covalent.Plugins.Storyblok.Provider;
 using Hitch;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-[assembly: HitchPlugin("Content", "Storyblok", typeof(StoryblokProviderBuilder))]
+[assembly: HitchPlugin("Tool", "Storyblok", typeof(StoryblokProviderBuilder))]
 
 namespace Covalent.Plugins.Storyblok.Provider;
 
 internal class StoryblokProviderBuilder : IPluginProvider
 {
-    public void Attach(IServiceCollection services, string? name = null)
+    public void Attach(IServiceCollection services, IConfigurationSection configurationSection, string? name = null)
     {
-        services.AddStoryblok();
+        services.AddStoryblok(configurationSection, name);
     }
 }

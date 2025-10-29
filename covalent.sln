@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Imports and Exporters", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Infrastructure", "1. Infrastructure", "{F0D5DB75-0DF2-4AF8-91A4-922F782742E3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Aspire Injection", "2. Aspire Injection", "{002CAE97-C9D1-46F3-9C87-5A1AE3A5FFAC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Plugins", "3. Plugins", "{002CAE97-C9D1-46F3-9C87-5A1AE3A5FFAC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Aspire", "5. Aspire", "{B789F511-4E07-4066-8FAE-D882D1DD4393}"
 EndProject
@@ -35,9 +35,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hitch", "hitch\src\Hitch\Hi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hitch.Aspire.Hosting", "hitch\src\Hitch.Aspire.Hosting\Hitch.Aspire.Hosting.csproj", "{26C186B2-7B93-D7E0-2612-10B359315C1A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72D-47B6-A68D-7590B98EB39B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covalent.Plugins.Storyblok", "src\Covalent.Plugins.Storyblok\Covalent.Plugins.Storyblok.csproj", "{D3FFD5B3-19C3-47D4-BCCB-8C9473A65BB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covalent.Aspire.Hosting.Storyblok", "src\Covalent.Aspire.Hosting.Storyblok\Covalent.Aspire.Hosting.Storyblok.csproj", "{8A7F5E2D-4C3B-9A1E-7F2D-6C8E4B9A3D5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -169,6 +169,18 @@ Global
 		{D3FFD5B3-19C3-47D4-BCCB-8C9473A65BB5}.Release|x64.Build.0 = Release|Any CPU
 		{D3FFD5B3-19C3-47D4-BCCB-8C9473A65BB5}.Release|x86.ActiveCfg = Release|Any CPU
 		{D3FFD5B3-19C3-47D4-BCCB-8C9473A65BB5}.Release|x86.Build.0 = Release|Any CPU
+		{8A7F5E2D-4C3B-9A1E-7F2D-6C8E4B9A3D5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A7F5E2D-4C3B-9A1E-7F2D-6C8E4B9A3D5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A7F5E2D-4C3B-9A1E-7F2D-6C8E4B9A3D5F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8A7F5E2D-4C3B-9A1E-7F2D-6C8E4B9A3D5F}.Debug|x64.Build.0 = Debug|Any CPU
+		{8A7F5E2D-4C3B-9A1E-7F2D-6C8E4B9A3D5F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8A7F5E2D-4C3B-9A1E-7F2D-6C8E4B9A3D5F}.Debug|x86.Build.0 = Debug|Any CPU
+		{8A7F5E2D-4C3B-9A1E-7F2D-6C8E4B9A3D5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A7F5E2D-4C3B-9A1E-7F2D-6C8E4B9A3D5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A7F5E2D-4C3B-9A1E-7F2D-6C8E4B9A3D5F}.Release|x64.ActiveCfg = Release|Any CPU
+		{8A7F5E2D-4C3B-9A1E-7F2D-6C8E4B9A3D5F}.Release|x64.Build.0 = Release|Any CPU
+		{8A7F5E2D-4C3B-9A1E-7F2D-6C8E4B9A3D5F}.Release|x86.ActiveCfg = Release|Any CPU
+		{8A7F5E2D-4C3B-9A1E-7F2D-6C8E4B9A3D5F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -182,7 +194,8 @@ Global
 		{17DB5885-190D-4F54-A884-5DEB690AC93C} = {9F0BF15A-9EF4-4B0C-9B24-778BF516465A}
 		{3EDA9768-01BE-7031-846E-D35A7AB4BD81} = {2CFA019F-E68B-4596-816A-EF9EF008C574}
 		{26C186B2-7B93-D7E0-2612-10B359315C1A} = {2CFA019F-E68B-4596-816A-EF9EF008C574}
-		{D3FFD5B3-19C3-47D4-BCCB-8C9473A65BB5} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{D3FFD5B3-19C3-47D4-BCCB-8C9473A65BB5} = {002CAE97-C9D1-46F3-9C87-5A1AE3A5FFAC}
+		{8A7F5E2D-4C3B-9A1E-7F2D-6C8E4B9A3D5F} = {002CAE97-C9D1-46F3-9C87-5A1AE3A5FFAC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6A4A6622-CEFE-47B8-ADB3-655F41638C8C}
