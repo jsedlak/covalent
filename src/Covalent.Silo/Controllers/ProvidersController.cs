@@ -8,7 +8,7 @@ namespace Covalent.Silo.Controllers;
 public class ProvidersController : ControllerBase
 {
     private readonly IServiceProvider _serviceProvider;
- 
+
     public ProvidersController(IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider;

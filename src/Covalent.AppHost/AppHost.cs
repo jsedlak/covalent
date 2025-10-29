@@ -3,19 +3,25 @@ using Hitch.Aspire.Hosting;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
+// Configure Storyblok parameters
+var storyblokSpaceId = builder.AddParameter("storyblok-space-id", secret: true);
+var storyblokApiUrl = builder.AddParameter("storyblok-api-url", secret: true);
+var storyblokToken = builder.AddParameter("storyblok-token", secret: true);
+
 // configure our plugins!
-var hitch = builder.AddHitch(builder => builder.WithFilePattern("Covalent.*.Plugin.dll"));
+var hitch = builder.AddHitch(hitchBuilder => hitchBuilder.WithFilePattern("Covalent.Plugins.*.dll"))
+    .WithStoryblokManagement("storyblok", storyblokSpaceId, storyblokApiUrl, storyblokToken);
 
 var foundry = builder.AddAzureAIFoundry("foundry");
 var chat = foundry.AddDeployment("chat", AIFoundryModel.OpenAI.Gpt5Nano);
 
-var temporal = builder.AddTemporalServerContainer("temporal");
+// var temporal = builder.AddTemporalServerContainer("temporal");
 
 var silo = builder.AddProject<Projects.Covalent_Silo>("covalent-silo")
     .WithReference(hitch)
     .WithReference(chat)
     .WithReference(foundry)
-    .WithReference(temporal)
+    //.WithReference(temporal)
     .WithExternalHttpEndpoints();
 
 silo.WithUrl("/api/providers", "Providers");
