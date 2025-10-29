@@ -4,6 +4,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>52e14f36-767d-42a4-b201-726e7c70fb1f</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Covalent.Core\Covalent.Core.csproj" />
+    <ProjectReference Include="..\Covalent.Plugins.Storyblok\Covalent.Plugins.Storyblok.csproj" />
     <ProjectReference Include="..\Covalent.ServiceDefaults\Covalent.ServiceDefaults.csproj" />
   </ItemGroup>
 

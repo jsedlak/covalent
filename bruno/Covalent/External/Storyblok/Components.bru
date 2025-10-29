@@ -5,9 +5,17 @@ meta {
 }
 
 get {
-  url: {{API_URL}}/api/storyblok/components
+  url: {{STORYBLOK_MANAGEMENT_URL}}/v1/spaces/:space_id/components
   body: none
   auth: inherit
+}
+
+params:path {
+  space_id: 1018892
+}
+
+headers {
+  : 
 }
 
 settings {

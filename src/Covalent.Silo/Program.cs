@@ -13,6 +13,9 @@ builder.AddAzureChatCompletionsClient(connectionName: "chat")
     .AddChatClient()
     .UseFunctionInvocation();
 
+// Add our plugins manually for testing
+builder.AddStoryblok();
+
 // Add ASP.NET Core services
 builder.Services.AddCors();
 builder.Services.AddControllers();
