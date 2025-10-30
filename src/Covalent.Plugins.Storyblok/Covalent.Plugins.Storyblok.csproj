@@ -12,5 +12,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\hitch\src\Hitch\Hitch.csproj" />
+    <ProjectReference Include="..\Covalent.Core\Covalent.Core.csproj" />
   </ItemGroup>
 </Project>

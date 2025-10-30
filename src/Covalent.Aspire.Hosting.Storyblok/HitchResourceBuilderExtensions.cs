@@ -58,6 +58,8 @@ public static class StoryblokHitchResourceBuilderExtensions
             ["PersonalAccessToken"] = personalAccessToken.Resource
         });
 
+        builder.WithPlugin("Tool", "Storyblok", name);
+
         return builder;
     }
 }

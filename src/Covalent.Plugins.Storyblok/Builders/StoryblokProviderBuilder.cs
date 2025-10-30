@@ -1,11 +1,11 @@
-﻿using Covalent.Plugins.Storyblok.Provider;
+﻿using Covalent.Plugins.Storyblok.Builders;
 using Hitch;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: HitchPlugin("Service", "Storyblok", typeof(StoryblokProviderBuilder))]
 
-namespace Covalent.Plugins.Storyblok.Provider;
+namespace Covalent.Plugins.Storyblok.Builders;
 
 internal class StoryblokProviderBuilder : IPluginProvider
 {
