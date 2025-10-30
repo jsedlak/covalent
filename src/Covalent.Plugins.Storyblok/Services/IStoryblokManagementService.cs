@@ -6,5 +6,6 @@ namespace Covalent.Plugins.Storyblok.Services;
 public interface IStoryblokManagementService
 {
     Task<IEnumerable<Component>> GetComponents();
+    Task<Component> CreateComponent(Component component);
 }
 

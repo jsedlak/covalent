@@ -1,6 +1,7 @@
 using Covalent.Plugins.Storyblok.ServiceModel;
 using Covalent.Plugins.Storyblok.Model;
 using Microsoft.Extensions.Options;
+using System.Text;
 using System.Text.Json;
 
 namespace Covalent.Plugins.Storyblok.Services;
@@ -55,5 +56,40 @@ public class StoryblokManagementService : IStoryblokManagementService
         }
 
         return components;
+    }
+
+    public async Task<Component> CreateComponent(Component component)
+    {
+        var json = _componentSerializer.Serialize(component);
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+        
+        var response = await _httpClient.PostAsync(
+            $"{_options.ManagementApiUrl}/v1/spaces/{_options.SpaceId}/components/",
+            content);
+        response.EnsureSuccessStatusCode();
+
+        var responseContent = await response.Content.ReadAsStringAsync();
+        var doc = JsonDocument.Parse(responseContent);
+        
+        // The response may be wrapped in a "component" object
+        JsonElement componentElement;
+        if (doc.RootElement.TryGetProperty("component", out var componentWrapper))
+        {
+            componentElement = componentWrapper;
+        }
+        else
+        {
+            componentElement = doc.RootElement;
+        }
+        
+        var componentJson = componentElement.GetRawText();
+        var createdComponent = _componentSerializer.Deserialize(componentJson);
+        
+        if (createdComponent == null)
+        {
+            throw new InvalidOperationException("Failed to deserialize created component from response");
+        }
+
+        return createdComponent;
     }
 }
