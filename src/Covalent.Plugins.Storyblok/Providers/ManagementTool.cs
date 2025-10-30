@@ -10,21 +10,21 @@ public class ManagementToolProvider : IToolProvider
     {
         return new Tool[] {
             new Tool {
-                Id = "get-components",
-                Name = "Get Components",
+                Id = "query_components",
+                Name = "Query Components",
                 Description = "Get all components from Storyblok",
                 TypeName = nameof(IStoryblokManagementService),
                 MethodName = nameof(IStoryblokManagementService.GetComponents)
             },
             new Tool {
-                Id = "get-component",
+                Id = "get_component",
                 Name = "Get Component",
                 Description = "Get a component from Storyblok",
                 TypeName = nameof(IStoryblokManagementService),
                 MethodName = nameof(IStoryblokManagementService.GetComponent)
             },
             new Tool {
-                Id = "create-component",
+                Id = "create_component",
                 Name = "Create Component",
                 Description = "Create a new component in Storyblok",
                 TypeName = nameof(IStoryblokManagementService),
