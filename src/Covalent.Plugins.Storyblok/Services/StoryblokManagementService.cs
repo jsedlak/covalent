@@ -58,6 +58,36 @@ public class StoryblokManagementService : IStoryblokManagementService
         return components;
     }
 
+    public async Task<Component> GetComponent(long componentId)
+    {
+        var response = await _httpClient.GetAsync($"{_options.ManagementApiUrl}/v1/spaces/{_options.SpaceId}/components/{componentId}");
+        response.EnsureSuccessStatusCode();
+
+        var responseContent = await response.Content.ReadAsStringAsync();
+        var doc = JsonDocument.Parse(responseContent);
+        
+        // The response may be wrapped in a "component" object
+        JsonElement componentElement;
+        if (doc.RootElement.TryGetProperty("component", out var componentWrapper))
+        {
+            componentElement = componentWrapper;
+        }
+        else
+        {
+            componentElement = doc.RootElement;
+        }
+        
+        var componentJson = componentElement.GetRawText();
+        var component = _componentSerializer.Deserialize(componentJson);
+        
+        if (component == null)
+        {
+            throw new InvalidOperationException("Failed to deserialize component from response");
+        }
+
+        return component;
+    }
+
     public async Task<Component> CreateComponent(Component component)
     {
         var json = _componentSerializer.Serialize(component);

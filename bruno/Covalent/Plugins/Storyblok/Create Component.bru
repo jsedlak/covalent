@@ -1,0 +1,100 @@
+meta {
+  name: Create Component
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{API_URL}}/api/storyblok/components
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id": 106878402822892,
+    "name": "complex-component-test",
+    "display_name": "Complex Component Test",
+    "description": "test",
+    "created_at": "2025-10-30T00:09:20.062+00:00",
+    "updated_at": "2025-10-30T00:10:00.742+00:00",
+    "schema": {
+      "sections": [
+        {
+          "id": "0Xt3MljzQ2qsUBEKWev0Jg",
+          "name": null,
+          "description": null,
+          "slug": "generalGroup",
+          "type": "section",
+          "pos": 0,
+          "keys": [
+            "name"
+          ],
+          "fields": [
+            {
+              "id": "Kk9ZoYh_SziNV3v0aaH7MA",
+              "name": null,
+              "description": null,
+              "slug": "name",
+              "type": "text",
+              "pos": 1,
+              "is_reference_type": null,
+              "source": null,
+              "entry_appearance": null,
+              "allow_advanced_search": null
+            }
+          ]
+        }
+      ],
+      "tabs": [
+        {
+          "id": "2YtxQ0zDSLWWdMk4C_0veQ",
+          "name": null,
+          "description": null,
+          "slug": "tab-d98b7143-4cc3-48b5-9674-c9380bfd2f79",
+          "display_name": "Media",
+          "type": "tab",
+          "pos": 0,
+          "keys": [
+            "heroImage"
+          ],
+          "fields": [
+            {
+              "id": "85g0o64_SEGyRY2Uha_NeA",
+              "name": null,
+              "description": null,
+              "slug": "heroImage",
+              "type": "asset",
+              "pos": 3,
+              "is_reference_type": null,
+              "source": null,
+              "entry_appearance": null,
+              "allow_advanced_search": null
+            }
+          ]
+        }
+      ],
+      "fields": []
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "real_name": "complext-component",
+    "component_group_uuid": null,
+    "icon": null,
+    "color": null,
+    "internal_tags_list": [
+      {
+        "id": 106878388210551,
+        "name": "Testing"
+      }
+    ],
+    "internal_tag_ids": [
+      "106878388210551"
+    ],
+    "content_type_asset_preview": null
+  }
+}

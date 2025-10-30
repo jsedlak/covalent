@@ -22,8 +22,14 @@ public class StoryblokController : ControllerBase
         return await _storyblokManagementService.GetComponents();
     }
 
-    [HttpPost("spaces/{space_id}/components")]
-    public async Task<Component> CreateComponent([FromRoute] string space_id, [FromBody] Component component)
+    [HttpGet("components/{componentId}")]
+    public async Task<Component> GetComponent([FromRoute] long componentId)
+    {
+        return await _storyblokManagementService.GetComponent(componentId);
+    }
+
+    [HttpPost("components")]
+    public async Task<Component> CreateComponent([FromBody] Component component)
     {
         return await _storyblokManagementService.CreateComponent(component);
     }
