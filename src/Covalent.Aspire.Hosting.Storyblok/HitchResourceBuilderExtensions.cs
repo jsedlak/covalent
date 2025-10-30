@@ -49,22 +49,14 @@ public static class StoryblokHitchResourceBuilderExtensions
             throw new ArgumentNullException(nameof(personalAccessToken));
         }
 
-        // Register the plugin with Hitch
-        builder.WithPlugin("Tool", "Storyblok", name);
-
-        // Store the configuration values for this instance
-        var configKey = $"Tool__Storyblok__{name}";
-        if (!builder.Resource.PluginConfigurations.ContainsKey(configKey))
-        {
-            builder.Resource.PluginConfigurations[configKey] = new Dictionary<string, object>();
-        }
-
-        var config = builder.Resource.PluginConfigurations[configKey];
-        
+        // Register the plugin with Hitch and provide configuration values
         // Store the ParameterResource objects directly - GetEnvironmentExports will create proper references
-        config["SpaceId"] = spaceId.Resource;
-        config["ManagementApiUrl"] = managementApiUrl.Resource;
-        config["PersonalAccessToken"] = personalAccessToken.Resource;
+        builder.WithPlugin("Service", "Storyblok", name, new Dictionary<string, object>
+        {
+            ["SpaceId"] = spaceId.Resource,
+            ["ManagementApiUrl"] = managementApiUrl.Resource,
+            ["PersonalAccessToken"] = personalAccessToken.Resource
+        });
 
         return builder;
     }

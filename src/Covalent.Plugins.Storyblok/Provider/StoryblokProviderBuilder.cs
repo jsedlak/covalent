@@ -3,7 +3,7 @@ using Hitch;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-[assembly: HitchPlugin("Tool", "Storyblok", typeof(StoryblokProviderBuilder))]
+[assembly: HitchPlugin("Service", "Storyblok", typeof(StoryblokProviderBuilder))]
 
 namespace Covalent.Plugins.Storyblok.Provider;
 
