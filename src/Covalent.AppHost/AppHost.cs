@@ -19,8 +19,8 @@ var chat = foundry.AddDeployment("chat", AIFoundryModel.OpenAI.Gpt5Nano);
 
 var silo = builder.AddProject<Projects.Covalent_Silo>("covalent-silo")
     .WithReference(hitch)
-    .WithReference(chat)
-    .WithReference(foundry)
+    // .WithReference(chat)
+    //.WithReference(foundry)
     //.WithReference(temporal)
     .WithExternalHttpEndpoints();
 

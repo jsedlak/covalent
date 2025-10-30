@@ -1,0 +1,9 @@
+---
+alwaysApply: true
+---
+
+When using a command line tool (CLI), on windows use a semicolon (;) to separate lines. Do not use two ampersands (&&).
+
+Always use absolute paths.
+
+When an if statement has only one line, still wrap it with braces { }.

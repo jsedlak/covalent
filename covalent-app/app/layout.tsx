@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import "./globals.css";
 import { SidebarLayout } from "@/components/sidebar-layout";
+import { ToolsContextProvider } from "@/lib/contexts/tools-context";
 
 const rubik = Rubik({
   variable: "--font-rubik",
@@ -23,9 +24,11 @@ export default function RootLayout({
       <body
         className={`${rubik.variable} antialiased font-sans`}
       >
-        <SidebarLayout>
-          {children}
-        </SidebarLayout>
+        <ToolsContextProvider>
+          <SidebarLayout>
+            {children}
+          </SidebarLayout>
+        </ToolsContextProvider>
       </body>
     </html>
   );
