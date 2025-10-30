@@ -9,21 +9,25 @@ public class StoryblokManagementService : IStoryblokManagementService
 {
     private readonly StoryblokOptions _options;
     private readonly HttpClient _httpClient;
+    private readonly IComponentSerializer _componentSerializer;
 
     public StoryblokManagementService(
         IHttpClientFactory httpClientFactory,
-        IOptions<StoryblokOptions> options)
-        : this(httpClientFactory, options, "storyblok")
+        IOptions<StoryblokOptions> options,
+        IComponentSerializer componentSerializer)
+        : this(httpClientFactory, options, componentSerializer, "storyblok")
     {
     }
 
     public StoryblokManagementService(
         IHttpClientFactory httpClientFactory,
         IOptions<StoryblokOptions> options,
+        IComponentSerializer componentSerializer,
         string clientName)
     {
         _httpClient = httpClientFactory.CreateClient(clientName);
         _options = options.Value;
+        _componentSerializer = componentSerializer;
     }
 
     public async Task<IEnumerable<Component>> GetComponents()
@@ -37,9 +41,19 @@ public class StoryblokManagementService : IStoryblokManagementService
         var content = await response.Content.ReadAsStringAsync();
         var doc = JsonDocument.Parse(content);
 
-        return JsonSerializer.Deserialize<IEnumerable<Component>>(
-            doc.RootElement.GetProperty("components").GetRawText()
-        ) ?? Array.Empty<Component>();
-        
+        var componentsArray = doc.RootElement.GetProperty("components");
+        var components = new List<Component>();
+
+        foreach (var componentElement in componentsArray.EnumerateArray())
+        {
+            var componentJson = componentElement.GetRawText();
+            var component = _componentSerializer.Deserialize(componentJson);
+            if (component != null)
+            {
+                components.Add(component);
+            }
+        }
+
+        return components;
     }
 }

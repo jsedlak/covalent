@@ -40,6 +40,9 @@ public static class ServiceCollectionExtensions
         IConfigurationSection configurationSection,
         string? name = null)
     {
+        // Register ComponentSerializer as singleton
+        services.AddSingleton<IComponentSerializer, ComponentSerializer>();
+
         if (string.IsNullOrEmpty(name))
         {
             // Non-keyed registration for backward compatibility
@@ -89,7 +92,8 @@ public static class ServiceCollectionExtensions
                 {
                     var httpClientFactory = serviceProvider.GetRequiredService<IHttpClientFactory>();
                     var options = serviceProvider.GetRequiredKeyedService<StoryblokOptions>(key);
-                    return new StoryblokManagementService(httpClientFactory, Microsoft.Extensions.Options.Options.Create(options), name);
+                    var componentSerializer = serviceProvider.GetRequiredService<IComponentSerializer>();
+                    return new StoryblokManagementService(httpClientFactory, Microsoft.Extensions.Options.Options.Create(options), componentSerializer, name);
                 });
         }
         

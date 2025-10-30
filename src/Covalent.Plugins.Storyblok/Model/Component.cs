@@ -5,7 +5,7 @@ namespace Covalent.Plugins.Storyblok.Model;
 public sealed class Component
 {
     [JsonPropertyName("id")]
-    public int Id { get; set; }
+    public long Id { get; set; }
 
     [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
@@ -21,4 +21,7 @@ public sealed class Component
 
     [JsonPropertyName("updated_at")]
     public DateTimeOffset UpdatedAt { get; set; }
+
+    [JsonPropertyName("schema")]
+    public ComponentSchema? Schema { get; set; }
 }
